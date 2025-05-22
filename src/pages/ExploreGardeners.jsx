@@ -140,6 +140,9 @@ const ExploreGardeners = () => {
                                             alt={gardener.name}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
+                                        <div className='absolute top-4 text-black rounded-lg p-2 right-4 bg-lime-300'>
+                                        <h4>{gardener.status}</h4>
+                                    </div>
                                     </div>
                                     <div className="p-6">
                                         <div className="flex justify-between items-start mb-3">

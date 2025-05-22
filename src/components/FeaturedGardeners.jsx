@@ -13,10 +13,10 @@ const FeaturedGardeners = () => {
       try {
         const response = await fetch('http://localhost:3000/gardeners',)
         const data = await response.json()
-        
+
         // Filter only active gardeners
         // const activeGardeners = data.filter(gardener => gardener.status === "active");
-        
+
         setGardeners(data?.data);
         setLoading(false);
       } catch (error) {
@@ -51,11 +51,14 @@ const FeaturedGardeners = () => {
             <Fade direction="up" delay={index * 100} triggerOnce key={gardener.id}>
               <div className="card group hover:scale-[1.02]">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={gardener.image} 
-                    alt={gardener.name} 
+                  <img
+                    src={gardener.image}
+                    alt={gardener.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className='absolute top-4 text-black rounded-lg p-1 right-4 bg-lime-300'>
+                    <h4 className='text-sm'>{gardener.status} gardeners</h4>
+                  </div>
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
@@ -77,8 +80,8 @@ const FeaturedGardeners = () => {
                   <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                     {gardener.location}
                   </div>
-                  <Link 
-                    to={`/gardener/${gardener.id}`} 
+                  <Link
+                    to={`/gardener/${gardener.id}`}
                     className="btn btn-primary w-full text-center"
                   >
                     View Profile
@@ -88,10 +91,10 @@ const FeaturedGardeners = () => {
             </Fade>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <Link 
-            to="/explore-gardeners" 
+          <Link
+            to="/explore-gardeners"
             className="btn btn-secondary py-3 px-8"
           >
             Explore All Gardeners
