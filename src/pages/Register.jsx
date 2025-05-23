@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 import { Fade } from 'react-awesome-reveal';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -34,7 +34,7 @@ const Register = () => {
     try {
       setLoading(true);
       // Create user with email and password
-      const result = await signup(email, password);
+      await signup(email, password);
       
       // Update profile with name and photo
       await updateUserProfile(name, photoURL);
@@ -169,7 +169,7 @@ const Register = () => {
                 disabled={loading}
                 className="w-full flex justify-center items-center py-3 px-4 border rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-700 dark:text-white border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition"
               >
-                <FaGoogle className="h-5 w-5 mr-2 text-red-500" />
+                <FcGoogle className="h-5 w-5 mr-2 text-red-500" />
                 <span>Sign up with Google</span>
               </button>
             </div>
