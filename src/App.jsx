@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import ShareTip from './pages/ShareTip'
 import MyTips from './pages/MyTips'
+import UpdateTip from './pages/UpdateTip'
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -45,6 +46,11 @@ function App() {
           <Route path="tip/:id" element={
             <PrivateRoute>
               <TipDetails />
+            </PrivateRoute>
+          } />
+          <Route path="update-tip/:id" element={
+            <PrivateRoute>
+              <UpdateTip />
             </PrivateRoute>
           } />
         </Route>
