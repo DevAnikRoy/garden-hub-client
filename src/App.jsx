@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import ExploreGardeners from './pages/ExploreGardeners'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ShareTip from './pages/ShareTip'
+import MyTips from './pages/MyTips'
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -29,6 +31,17 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           
+          {/* Private Routes */}
+          <Route path="share-tip" element={
+            <PrivateRoute>
+              <ShareTip />
+            </PrivateRoute>
+          } />
+          <Route path="my-tips" element={
+            <PrivateRoute>
+              <MyTips />
+            </PrivateRoute>
+          } />
           <Route path="tip/:id" element={
             <PrivateRoute>
               <TipDetails />

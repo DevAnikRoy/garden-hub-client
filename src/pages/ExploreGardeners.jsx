@@ -157,14 +157,14 @@ const ExploreGardeners = () => {
                                         <p className="text-gray-600 dark:text-gray-300 mb-3">
                                             {gardener.experiences}
                                         </p>
-                                        <div className="flex justify-between items-center text-primary-500 dark:text-primary-400 mb-4">
-                                            <div className='flex items-center justify-center'>
+                                        <div className=" text-primary-500 dark:text-primary-400 mb-4 space-y-3">
+                                            <div className='flex items-center justify-start'>
                                                 <FaLeaf className="mr-2" />
                                                 <span className="font-medium">{gardener.specialty}</span>
                                             </div>
-
+                                                
                                             <div>
-                                                <h4>Tips: {gardener.totalSharedTips}</h4>
+                                                <h4 className='text-xs dark:text-lime-300'>Tips: <span className='font-bold'>{gardener.totalSharedTips}</span></h4>
                                             </div>
                                         </div>
                                         <div className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex justify-between items-center">
