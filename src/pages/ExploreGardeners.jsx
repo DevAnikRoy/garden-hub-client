@@ -140,9 +140,7 @@ const ExploreGardeners = () => {
                                             alt={gardener.name}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className='absolute top-4 text-black rounded-lg p-2 right-4 bg-lime-300'>
-                                        <h4>{gardener.status}</h4>
-                                    </div>
+                                        
                                     </div>
                                     <div className="p-6">
                                         <div className="flex justify-between items-start mb-3">
@@ -169,18 +167,22 @@ const ExploreGardeners = () => {
                                                 <h4>Tips: {gardener.totalSharedTips}</h4>
                                             </div>
                                         </div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                        <div className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex justify-between items-center">
                                             {gardener.location}
+                                            <h4 className='text-center text-black rounded-lg px-2 bg-lime-300'>{gardener.status}</h4>
                                         </div>
-                                        <Link
+                                        
+                                        {/* <Link
                                             to={`/gardener/${gardener.id}`}
                                             className="btn btn-primary w-full text-center"
                                         >
                                             View Profile
-                                        </Link>
+                                        </Link> */}
                                     </div>
+                                    
                                 </div>
                             </Fade>
+                            
                         ))}
                     </div>
                 ) : (

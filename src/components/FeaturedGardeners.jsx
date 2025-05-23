@@ -80,12 +80,12 @@ const FeaturedGardeners = () => {
                   <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                     {gardener.location}
                   </div>
-                  <Link
+                  {/* <Link
                     to={`/gardener/${gardener.id}`}
                     className="btn btn-primary w-full text-center"
                   >
                     View Profile
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </Fade>

@@ -101,10 +101,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-gray-800 dark:text-white">Contact Us</h4>
             <address className="not-italic text-gray-600 dark:text-gray-300 space-y-2">
-              <p>123 Green Street</p>
-              <p>Gardenville, GD 12345</p>
-              <p>Email: <a href="mailto:info@gardenhub.com" className="hover:text-primary-500 dark:hover:text-primary-400 transition">info@gardenhub.com</a></p>
-              <p>Phone: <a href="tel:+15551234567" className="hover:text-primary-500 dark:hover:text-primary-400 transition">(555) 123-4567</a></p>
+              <p>DAG-1851,</p>
+              <p>East Rampura, Dhaka</p>
+              <p>Email: <a href="anikroy302@gmail.com" className="hover:text-primary-500 dark:hover:text-primary-400 transition">anikroy302@gmail.com</a></p>
+              <p>Phone: <a href="tel:+15551234567" className="hover:text-primary-500 dark:hover:text-primary-400 transition">+8801722718821</a></p>
             </address>
           </div>
         </div>
@@ -134,7 +134,7 @@ const Footer = () => {
           <p className="text-gray-600 dark:text-gray-300 text-sm">
             &copy; {currentYear} GardenHub. All rights reserved.
           </p>
-          <div className="flex justify-center space-x-4 mt-2">
+          <div className="flex justify-center space-x-6 mt-2">
             <Link to="/terms" className="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 text-sm transition">
               Terms of Service
             </Link>
@@ -145,6 +145,7 @@ const Footer = () => {
               Cookie Policy
             </Link>
           </div>
+          <p className='text-sm mt-8 text-[#bdbdbd] dark:text-[#646464]'>Dev-Anik-Roy</p>
         </div>
       </div>
     </footer>
