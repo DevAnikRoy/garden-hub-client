@@ -13,6 +13,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import TipDetails from './pages/TipDetails'
 import PrivateRoute from './components/PrivateRoute'
+import NotFound from './pages/NotFound'
 
 function App() {
   useEffect(() => {
@@ -53,6 +54,7 @@ function App() {
               <UpdateTip />
             </PrivateRoute>
           } />
+           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -14,8 +14,7 @@ const FeaturedGardeners = () => {
         const response = await fetch('http://localhost:3000/gardeners',)
         const data = await response.json()
 
-        // Filter only active gardeners
-        // const activeGardeners = data.filter(gardener => gardener.status === "active");
+        
 
         setGardeners(data?.data);
         setLoading(false);

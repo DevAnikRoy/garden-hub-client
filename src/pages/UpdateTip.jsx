@@ -15,7 +15,7 @@ const UpdateTip = () => {
         plantType: '',
         difficultyLevel: '',
         description: '',
-        imageUrl: '',
+        image: '',
         category: '',
         availability: '',
         userEmail: currentUser?.email || '',
@@ -43,26 +43,11 @@ const UpdateTip = () => {
     useEffect(() => {
         const fetchTip = async () => {
             try {
-                // Simulating API call with local data for demo
-                // In a real app, this would be: await axios.get(`${import.meta.env.VITE_API_URL}/tips/${id}`);
+                
 
-                // Simulate fetching data
-                await new Promise(resolve => setTimeout(resolve, 500));
-
-                // Mock data for demo
-                const tipData = {
-                    id: id,
-                    title: "Growing Tomatoes in Small Spaces",
-                    plantType: "Tomatoes",
-                    difficultyLevel: "Easy",
-                    category: "Plant Care",
-                    description: "Everything you need to know about growing tomatoes in small spaces - from containers to vertical growing systems.",
-                    imageUrl: "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                    totalLiked: 245,
-                    availability: "Public",
-                    userEmail: currentUser?.email || '',
-                    userName: currentUser?.displayName || ''
-                };
+                const response = await fetch(`http://localhost:3000/my-tips/${id}`,)
+                const data = await response.json()
+                const tipData = data.filter(tip => tip.id === currentUser.id);
 
                 setFormData(tipData);
                 setLoading(false);
@@ -87,20 +72,25 @@ const UpdateTip = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Check if all required fields are filled
-        if (!formData.title || !formData.plantType || !formData.description || !formData.imageUrl) {
+        
+        if (!formData.title || !formData.plantType || !formData.description || !formData.image) {
             return toast.error('Please fill in all required fields');
         }
 
         try {
             setSubmitting(true);
-
-            // In a real app, this would be an actual API call:
-            // await axios.put(`${import.meta.env.VITE_API_URL}/tips/${id}`, formData);
-
-            // Simulate API call for demo
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            fetch(`http://localhost:3000/update-tip/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
 
             toast.success('Tip updated successfully!');
             navigate('/my-tips');
@@ -204,26 +194,17 @@ const UpdateTip = () => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="imageUrl" className="form-label">Image URL</label>
+                                    <label htmlFor="image" className="form-label">Image URL</label>
                                     <input
                                         type="url"
-                                        id="imageUrl"
-                                        name="imageUrl"
-                                        value={formData.imageUrl}
+                                        id="image"
+                                        name="image"
+                                        value={formData.image}
                                         onChange={handleChange}
                                         placeholder="https://example.com/image.jpg"
                                         className="form-input"
                                         required
                                     />
-                                    {formData.imageUrl && (
-                                        <div className="mt-2">
-                                            <img
-                                                src={formData.imageUrl}
-                                                alt="Preview"
-                                                className="h-32 w-auto object-cover rounded-md"
-                                            />
-                                        </div>
-                                    )}
                                 </div>
 
                                 <div>
@@ -240,34 +221,6 @@ const UpdateTip = () => {
                                             <option key={option} value={option}>{option}</option>
                                         ))}
                                     </select>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label htmlFor="userEmail" className="form-label">User Email</label>
-                                        <input
-                                            type="email"
-                                            id="userEmail"
-                                            name="userEmail"
-                                            value={formData.userEmail}
-                                            className="form-input bg-gray-100 dark:bg-gray-700"
-                                            readOnly
-                                            disabled
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="userName" className="form-label">User Name</label>
-                                        <input
-                                            type="text"
-                                            id="userName"
-                                            name="userName"
-                                            value={formData.userName}
-                                            className="form-input bg-gray-100 dark:bg-gray-700"
-                                            readOnly
-                                            disabled
-                                        />
-                                    </div>
                                 </div>
 
                                 <div className="flex justify-between">

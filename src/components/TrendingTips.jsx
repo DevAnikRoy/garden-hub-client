@@ -15,91 +15,7 @@ const TrendingTips = () => {
   useEffect(() => {
     const fetchTrendingTips = async () => {
       try {
-        // Simulating API call with local data for demo
-        // In a real app, this would be: await axios.get(`${import.meta.env.VITE_API_URL}/tips/trending`);
-        // const data = [
-        //   {
-        //     id: 1,
-        //     title: "Growing Tomatoes in Small Spaces",
-        //     plantType: "Tomatoes",
-        //     difficultyLevel: "Easy",
-        //     category: "Plant Care",
-        //     description: "Everything you need to know about growing tomatoes in small spaces - from containers to vertical growing systems.",
-        //     image: "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     totalLiked: 245,
-        //     authorName: "Emily Turner",
-        //     authorImage: "https://images.pexels.com/photos/7648047/pexels-photo-7648047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     authorId: 5
-        //   },
-        //   {
-        //     id: 2,
-        //     title: "Water-Saving Techniques for Dry Climates",
-        //     plantType: "Various",
-        //     difficultyLevel: "Medium",
-        //     category: "Sustainable Gardening",
-        //     description: "Practical methods to conserve water while maintaining healthy plants in arid environments.",
-        //     image: "https://images.pexels.com/photos/8054535/pexels-photo-8054535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     totalLiked: 187,
-        //     authorName: "David Park",
-        //     authorImage: "https://images.pexels.com/photos/13916254/pexels-photo-13916254.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     authorId: 6
-        //   },
-        //   {
-        //     id: 3,
-        //     title: "Beginners Guide to Vertical Gardening",
-        //     plantType: "Mixed Varieties",
-        //     difficultyLevel: "Easy",
-        //     category: "Vertical Gardening",
-        //     description: "How to maximize your space by growing upward - perfect for urban gardeners with limited space.",
-        //     image: "https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     totalLiked: 156,
-        //     authorName: "Michael Chen",
-        //     authorImage: "https://images.pexels.com/photos/4994225/pexels-photo-4994225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     authorId: 2
-        //   },
-        //   {
-        //     id: 4,
-        //     title: "Natural Pest Control Solutions",
-        //     plantType: "All Plants",
-        //     difficultyLevel: "Medium",
-        //     category: "Plant Care",
-        //     description: "Keep pests away without using harmful chemicals with these natural and effective methods.",
-        //     image: "https://images.pexels.com/photos/7919/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     totalLiked: 132,
-        //     authorName: "Alice Johnson",
-        //     authorImage: "https://images.pexels.com/photos/5273640/pexels-photo-5273640.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     authorId: 1
-        //   },
-        //   {
-        //     id: 5,
-        //     title: "Creating a Thriving Indoor Herb Garden",
-        //     plantType: "Herbs",
-        //     difficultyLevel: "Easy",
-        //     category: "Herb Gardening",
-        //     description: "Learn how to grow a year-round supply of fresh herbs right in your kitchen.",
-        //     image: "https://images.pexels.com/photos/6231645/pexels-photo-6231645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     totalLiked: 124,
-        //     authorName: "Sarah Williams",
-        //     authorImage: "https://images.pexels.com/photos/7516347/pexels-photo-7516347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     authorId: 3
-        //   },
-        //   {
-        //     id: 6,
-        //     title: "Building Raised Garden Beds on a Budget",
-        //     plantType: "Vegetables",
-        //     difficultyLevel: "Medium",
-        //     category: "DIY",
-        //     description: "Step-by-step guide to constructing durable raised beds with affordable materials.",
-        //     image: "https://images.pexels.com/photos/7728087/pexels-photo-7728087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     totalLiked: 98,
-        //     authorName: "James Rodriguez",
-        //     authorImage: "https://images.pexels.com/photos/4195342/pexels-photo-4195342.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        //     authorId: 4
-        //   }
-        // ];
         
-        // Sort by total likes (descending)
-        // const sortedTips = data.sort((a, b) => b.totalLiked - a.totalLiked);
         setLoading(true)
         const response = await fetch('http://localhost:3000/gardeners/tips',)
         const data = await response.json()
@@ -123,17 +39,7 @@ const TrendingTips = () => {
     }
 
     try {
-      // In a real app, this would be an actual API call:
-      // await axios.post(`${import.meta.env.VITE_API_URL}/tips/${tipId}/like`, {
-      //   userId: currentUser.uid
-      // });
-
-      // For demo purposes, just update the state locally
-    //   setTips(prevTips => 
-    //     prevTips.map(tip => 
-    //       tip.id === tipId ? { ...tip, totalLiked: tip.totalLiked + 1 } : tip
-    //     )
-    //   );
+      
     setLoading(true)
     await fetch(`http://localhost:3000/like/${tipId}`,{
         method: 'PATCH',

@@ -20,7 +20,6 @@ const BrowseTips = () => {
         const data = await response.json()
         
         // Filter only public tips
-        // const publicTips = data.data
         const publicTips = data.filter(tip => tip.status === "public");
         
         setTips(publicTips);
