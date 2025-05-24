@@ -16,7 +16,7 @@ const BrowseTips = () => {
     const fetchTips = async () => {
       try {
         setLoading(true)
-        const response = await fetch('http://localhost:3000/browse-tips',)
+        const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/browse-tips`,)
         const data = await response.json()
         
         // Filter only public tips

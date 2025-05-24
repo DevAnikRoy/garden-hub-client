@@ -17,7 +17,7 @@ const TipDetails = () => {
         const fetchTip = async () => {
             try {
                 setLoading(true)
-                const response = await fetch(`http://localhost:3000/browse-tips/${id}`)
+                const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/browse-tips/${id}`)
                 const tipData = await response.json()
                 setTip(tipData);
                 setLoading(false);

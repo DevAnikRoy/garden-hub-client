@@ -58,7 +58,7 @@ const ShareTip = () => {
         try {
             setLoading(true);
 
-            const response = await fetch('http://localhost:3000/share-tip', {
+            const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/share-tip`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

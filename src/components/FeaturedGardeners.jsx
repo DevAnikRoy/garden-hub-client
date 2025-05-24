@@ -7,14 +7,15 @@ import LoadingSpinner from './LoadingSpinner';
 const FeaturedGardeners = () => {
   const [gardeners, setGardeners] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
+  const apiBaseUrl = import.meta.env.VITE_API_URL
+  console.log(apiBaseUrl)
+;  useEffect(() => {
     const fetchGardeners = async () => {
       try {
-        const response = await fetch('http://localhost:3000/gardeners',)
+        const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/gardeners`,)
         const data = await response.json()
 
-        
+
 
         setGardeners(data?.data);
         setLoading(false);
@@ -38,6 +39,7 @@ const FeaturedGardeners = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
               Featured Gardeners
+              {import.meta.env.VITE_API_PAGE_URL}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Connect with our most active community members who are changing how we think about gardening

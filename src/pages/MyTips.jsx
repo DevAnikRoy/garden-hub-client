@@ -17,7 +17,7 @@ const MyTips = () => {
             try {
                 
                 setLoading(true)
-                const response = await fetch('http://localhost:3000/my-tips',)
+                const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/my-tips`,)
                 const userTips = await response.json()
                 const data = userTips.filter(tip => tip.userEmail === currentUser.email);
 
@@ -43,16 +43,17 @@ const MyTips = () => {
     const handleDelete = async (id) => {
         try {
             
-            fetch(`http://localhost:3000/my-tips/${id}`, {
+            fetch(`${import.meta.env.VITE_API_PAGE_URL}/my-tips/${id}`, {
                 method: 'DELETE'
 
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
+                    toast.success('Tip deleted successfully!',data);
                 })
 
-            toast.success('Tip deleted successfully!');
+            
             setDeleteConfirmation(null);
         } catch (error) {
             console.error('Error deleting tip:', error);

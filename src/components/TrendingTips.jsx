@@ -17,7 +17,7 @@ const TrendingTips = () => {
       try {
         
         setLoading(true)
-        const response = await fetch('http://localhost:3000/gardeners/tips',)
+        const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/gardeners/tips`,)
         const data = await response.json()
         
         
@@ -41,7 +41,7 @@ const TrendingTips = () => {
     try {
       
     setLoading(true)
-    await fetch(`http://localhost:3000/like/${tipId}`,{
+    await fetch(`${import.meta.env.VITE_API_PAGE_URL}/like/${tipId}`,{
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'

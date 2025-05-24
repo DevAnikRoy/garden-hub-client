@@ -45,7 +45,7 @@ const UpdateTip = () => {
             try {
                 
 
-                const response = await fetch(`http://localhost:3000/my-tips/${id}`,)
+                const response = await fetch(`${import.meta.env.VITE_API_PAGE_URL}/my-tips/${id}`,)
                 const data = await response.json()
                 const tipData = data.filter(tip => tip.id === currentUser.id);
 
@@ -80,7 +80,7 @@ const UpdateTip = () => {
         try {
             setSubmitting(true);
             
-            fetch(`http://localhost:3000/update-tip/${id}`, {
+            fetch(`${import.meta.env.VITE_API_PAGE_URL}/update-tip/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
