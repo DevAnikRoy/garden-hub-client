@@ -25,13 +25,34 @@ Garden Hub is a community-driven web application built for gardening enthusiasts
 
 ---
 
-## 🔧 Tech Stack
+ Tech Stack & Libraries Used
+React 19.1.0
 
-- **Frontend:** React, React Router DOM, Axios, Tailwind CSS, AOS, Swiper
-- **Backend:** Express, MongoDB, Vercel (Hosting)
-- **Authentication:** Firebase
-- **Hosting:** Netlify (Client) & Vercel (Server)
-- **Other Libraries:** React Icons, React Hot Toast, React Simple Typewriter, React Tooltip, React Awesome Reveal
+React DOM 19.1.0
+
+React Router 7.6.0
+
+React Router DOM 6.22.0
+
+AOS (Animate on Scroll) 2.3.4
+
+Axios 1.6.7
+
+Firebase 11.7.3
+
+React Icons 5.0.1
+
+React Hot Toast 2.4.1
+
+React Awesome Reveal 4.2.8
+
+React Intersection Observer 9.8.0
+
+React Simple Typewriter 5.0.1
+
+React Tooltip 5.26.0
+
+Swiper.js 11.0.5
 
 ---
 
